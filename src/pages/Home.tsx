@@ -23,9 +23,9 @@ export function Home() {
     const [greeting, setGreeting] = useState('')
 
 
-    function handleAddNewSkill() {
+    function handleAddNewSkill() {      
         const data = {
-            id: String(new Date().getDate),
+            id: String(new Date().getTime()),
             name: newSkill
         }
 
@@ -38,7 +38,7 @@ export function Home() {
 
     useEffect(() =>{
         const currentHour = new Date().getHours();
-        console.log(currentHour)
+        console.log(`Current Hour ${currentHour}`)
         if(currentHour < 12){
             setGreeting('Goog morning')
         }
@@ -67,7 +67,9 @@ export function Home() {
             />   
 
             <Button 
-                myOnPress={handleAddNewSkill}         
+                tittle={"Add"}
+                key={"ID"}
+                onPress={handleAddNewSkill}  
             />
 
             <Text style={[styles.tittle,  {marginVertical: 50}]}>
