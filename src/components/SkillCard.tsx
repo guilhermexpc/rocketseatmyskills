@@ -13,6 +13,7 @@ export function SkillCard({mySkill, ...rest} : SkillCardProps) {
     return (
         <TouchableOpacity 
             style={styles.buttonSkill}
+            {...rest}
         >
             <Text style={styles.textSkill}>
                 {mySkill}

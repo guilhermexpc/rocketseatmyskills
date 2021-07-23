@@ -32,6 +32,12 @@ export function Home() {
         setMySkills(oldState => [...oldState, data])
     }
 
+    function handleRemoveSkill(id: string){
+        setMySkills(oldState => oldState.filter(
+            skill => skill.id !== id
+        ));
+    }
+
     useEffect( () => {
         console.log('useEffect Executado')
     }, [mySkills])
@@ -81,7 +87,8 @@ export function Home() {
                 keyExtractor={ item => item.id }
                 renderItem={({ item }) => (
                     <SkillCard                         
-                        mySkill={ item.name } 
+                        mySkill={ item.name }
+                        onPress={() => handleRemoveSkill(item.id)}                        
                     />
                 )}
             />
